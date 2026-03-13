@@ -10,7 +10,7 @@ Guidance for coding agents working in `discover-word`.
 - TypeScript is `strict` and uses the `@/*` path alias from `tsconfig.json`.
 - Formatting is Prettier-driven with `prettier-plugin-tailwindcss`.
 - Linting uses ESLint with Next.js Core Web Vitals and TypeScript presets.
-- No test runner is configured yet.
+- Testing uses Vitest with the `jsdom` environment.
 - No Cursor rules exist in `.cursor/rules/` or `.cursorrules`.
 - No Copilot instructions exist in `.github/copilot-instructions.md`.
 
@@ -43,36 +43,35 @@ Core commands:
 - `bun run build` - create the production build.
 - `bun run start` - serve the production build.
 - `bun run lint` - run ESLint across the repo.
+- `bun run test` - start Vitest in watch mode.
+- `bun run test:run` - run Vitest once.
 - `bun run typecheck` - run `tsc --noEmit`.
 - `bun run format` - format `**/*.{ts,tsx}` with Prettier.
 
 Verified working when this file was written:
 
 - `bun run lint`
+- `bun run test:run`
 - `bun run typecheck`
 - `bun run build`
 
 ## Tests
 
-There is currently no `test` script in `package.json` and no test framework is installed.
-Current consequence: agents cannot run repository tests yet, and there is no real single-test command.
-If you add tests, also add an explicit single-test command. Preferred forms:
+Vitest is installed and available through `bun run test` and `bun run test:run`.
+Single-test commands:
 
 - Bun file test: `bun test path/to/file.test.ts`
 - Bun named test: `bun test --test-name-pattern "name"`
 - Vitest file test: `bunx vitest run path/to/file.test.ts`
 - Vitest named test: `bunx vitest run path/to/file.test.ts -t "name"`
-  Update this file immediately when a real test runner is added.
 
 ## Standard Verification
 
 Before finishing a non-trivial change, run:
 
 ```bash
-bun run lint && bun run typecheck && bun run build
+bun run lint && bun run test:run && bun run typecheck && bun run build
 ```
-
-If a test suite is added later, include it in that sequence.
 
 ## Code Style
 
@@ -173,6 +172,6 @@ Prettier is authoritative:
 - No backend exists yet.
 - No MCP server exists yet.
 - No CLI exists yet.
-- No test runner exists yet.
+- Vitest is configured, but test coverage and UI/component testing helpers are not added yet.
 - No domain model for words, submissions, search, or recency exists yet.
   Treat the current repo as a clean frontend foundation and extend it deliberately.
