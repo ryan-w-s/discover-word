@@ -43,6 +43,7 @@ Core commands:
 - `bun run build` - create the production build.
 - `bun run start` - serve the production build.
 - `bun run lint` - run ESLint across the repo.
+- `bun run precommit` - run format, lint, typecheck, and tests as the default final verification step.
 - `bun run test` - start Vitest in watch mode.
 - `bun run test:run` - run Vitest once.
 - `bun run typecheck` - run `tsc --noEmit`.
@@ -67,10 +68,18 @@ Single-test commands:
 
 ## Standard Verification
 
-Before finishing a non-trivial change, run:
+Before finishing a task, prefer running:
 
 ```bash
-bun run lint && bun run test:run && bun run typecheck && bun run build
+bun run precommit
+```
+
+That is the primary final verification command for this repo.
+
+If you need the expanded form, it runs:
+
+```bash
+bun run format && bun run lint && bun run typecheck && bun run test:run
 ```
 
 ## Code Style
