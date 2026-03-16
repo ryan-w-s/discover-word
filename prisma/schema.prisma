@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Discovery {
+  id           String   @id @default(cuid())
+  term         String
+  language     String
+  discoveredAt DateTime @default(now())
+  source       String
+  note         String
+}

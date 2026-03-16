@@ -21,6 +21,8 @@
 # misc
 .DS_Store
 *.pem
+*.db
+*.db-journal
 
 # debug
 npm-debug.log*
@@ -29,8 +31,11 @@ yarn-error.log*
 pnpm-debug.log*
 
 # env files
+.env
 .env*.local
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+/generated/prisma
