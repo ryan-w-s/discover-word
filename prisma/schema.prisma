@@ -10,8 +10,6 @@ datasource db {
 model Discovery {
   id           String   @id @default(cuid())
   term         String
-  language     String
   discoveredAt DateTime @default(now())
   source       String
-  note         String
 }
