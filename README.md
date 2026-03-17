@@ -1,21 +1,31 @@
-# Next.js template
+# Discover Word
 
-This is a Next.js template with shadcn/ui.
+Discover Word is a Next.js frontend with an Elysia API mounted under `/api`.
 
-## Adding components
-
-To add components to your app, run the following command:
+## Development
 
 ```bash
-npx shadcn@latest add button
+bun install
+bun run dev
 ```
 
-This will place the ui components in the `components` directory.
+## Commander CLI
 
-## Using components
+The repo now includes a Commander-based CLI in `packages/cli`.
 
-To use the components in your app, import them as follows:
+```bash
+bun run cli -- status
+bun run cli -- recent --limit 5
+bun run cli -- check serendipity
+bun run cli -- add petrichor --source cli
+```
 
-```tsx
-import { Button } from "@/components/ui/button";
+Set `DISCOVER_WORD_API_URL` to point the CLI at another environment. It
+defaults to `http://localhost:3000`.
+
+## Tests
+
+```bash
+bun run test:run
+bun run cli:test
 ```

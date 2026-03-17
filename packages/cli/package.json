@@ -1,0 +1,16 @@
+{
+  "name": "@discover-word/cli",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "discover-word": "./src/index.ts"
+  },
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "test": "bunx vitest run src/**/*.test.ts"
+  },
+  "dependencies": {
+    "commander": "^14.0.3"
+  }
+}

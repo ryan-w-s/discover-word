@@ -46,6 +46,7 @@ Core commands:
 - `bun run precommit` - run format, lint, typecheck, and tests as the default final verification step.
 - `bun run test` - start Vitest in watch mode.
 - `bun run test:run` - run Vitest once.
+- `bun run cli:test` - run the Commander CLI tests.
 - `bun run typecheck` - run `tsc --noEmit`.
 - `bun run format` - format `**/*.{ts,tsx}` with Prettier.
 
@@ -65,6 +66,8 @@ Single-test commands:
 - Bun named test: `bun test --test-name-pattern "name"`
 - Vitest file test: `bunx vitest run path/to/file.test.ts`
 - Vitest named test: `bunx vitest run path/to/file.test.ts -t "name"`
+- CLI file test: `bunx vitest run packages/cli/src/index.test.ts`
+- CLI named test: `bunx vitest run packages/cli/src/index.test.ts -t "prints service metadata for status"`
 
 ## Standard Verification
 

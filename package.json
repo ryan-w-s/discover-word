@@ -3,7 +3,12 @@
   "version": "0.0.1",
   "type": "module",
   "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
+    "cli": "bun run --cwd packages/cli src/index.ts",
+    "cli:test": "bun run --cwd packages/cli test",
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
