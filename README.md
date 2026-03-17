@@ -1,17 +1,36 @@
 # Discover Word
 
-Discover Word is a Next.js frontend with an Elysia API mounted under `/api`.
+Discover Word is a small word discovery registry: a polished Next.js app backed
+by an Elysia API, Prisma, SQLite, and a Bun-powered CLI.
 
-## Development
+![Discover Word app screenshot](./discover-words-screenshot.png)
+
+## Current State
+
+- Add a new word from the web UI
+- Check whether a term already exists before adding it again
+- See the 10 most recent discoveries update after a successful submission
+- Inspect live API status and available routes from the app
+- Use the CLI to query status, list recents, check terms, and add entries
+
+## Stack
+
+- Next.js 16 + React 19 frontend
+- Elysia API mounted at `/api`
+- Prisma + SQLite persistence
+- Commander CLI in `packages/cli`
+- Bun for local development and scripts
+
+## Run It
 
 ```bash
 bun install
 bun run dev
 ```
 
-## Commander CLI
+Open `http://localhost:3000`.
 
-The repo now includes a Commander-based CLI in `packages/cli`.
+## CLI
 
 ```bash
 bun run cli -- status
@@ -20,12 +39,11 @@ bun run cli -- check serendipity
 bun run cli -- add petrichor --source cli
 ```
 
-Set `DISCOVER_WORD_API_URL` to point the CLI at another environment. It
-defaults to `http://localhost:3000`.
+Set `DISCOVER_WORD_API_URL` to target another environment. It defaults to
+`http://localhost:3000`.
 
-## Tests
+## Verify
 
 ```bash
-bun run test:run
-bun run cli:test
+bun run precommit
 ```
